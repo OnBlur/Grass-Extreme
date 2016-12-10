@@ -18,6 +18,8 @@ public class GameController : MonoBehaviour{
     public GameObject gameOverText;
     public float showRestartButton;
     public GameObject restartButton;
+    public GameObject exitButton;
+    public GameObject backgroundScreen;
     public GameObject splashScreen;
     public GameObject startButton;
     public HatController hatController;
@@ -49,6 +51,7 @@ public class GameController : MonoBehaviour{
     }
 
     public void StartGame(){
+        backgroundScreen.SetActive(false);
         splashScreen.SetActive(false);
         startButton.SetActive(false);
         hatController.ToggleControl(true);
@@ -66,6 +69,7 @@ public class GameController : MonoBehaviour{
             Instantiate(ball, spawnPosition, spawnRotation);
             yield return new WaitForSeconds(Random.Range(waitAfterSpawnMin, waitAfterSpawnMax));
         }
+        exitButton.SetActive(true);
         yield return new WaitForSeconds(showGameOverText);
         gameOverText.SetActive(true);
         yield return new WaitForSeconds(showRestartButton);
