@@ -21,6 +21,13 @@ public class Score : MonoBehaviour {
         UpdateScore();
     }
 
+    void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.tag == "Bomb"){
+            score -= ballValue * 2;
+            UpdateScore();
+        }
+    }
+
     void UpdateScore(){
         scoreText.text = "Score:\n" + score;
     }

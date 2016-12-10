@@ -82,10 +82,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\DestroyOnContact.cs" />
+    <Compile Include="Assets\Scripts\Explode.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\HatController.cs" />
     <Compile Include="Assets\Scripts\Restart.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
+    <Compile Include="Assets\Scripts\SelfDestruct.cs" />
+    <Compile Include="Assets\Scripts\SetParticleSortingLayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\LuckiestGuy\LICENSE.txt" />
