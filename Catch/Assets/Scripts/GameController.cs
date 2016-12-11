@@ -59,6 +59,7 @@ public class GameController : MonoBehaviour{
         UpdateText();
         //Fade in and activate text
         scoreGain.gameObject.SetActive(true);
+        scoreGain.text = "+" +addTimeIfCatch + " Sec";
         scoreGain.GetComponent<CanvasRenderer>().SetAlpha(0f);
         scoreGain.CrossFadeAlpha(1f, .15f, false);
         //Fade out
