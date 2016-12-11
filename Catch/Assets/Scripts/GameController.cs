@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour{
     public GameObject splashScreen;
     public GameObject startButton;
     public HatController hatController;
+    public float addTimeIfCatch;
 
     private float maxWidth;
     private bool playing;
@@ -46,6 +47,12 @@ public class GameController : MonoBehaviour{
             }
             UpdateText();
         }
+    }
+
+    private void OnTriggerEnter2D()
+    {
+        timeLeft += addTimeIfCatch;
+        UpdateText();
     }
 
     public void StartGame(){
