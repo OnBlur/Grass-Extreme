@@ -7,19 +7,23 @@ public class GameController : MonoBehaviour{
 
     public Camera cam;
     public GameObject[] balls;
-    public float timeLeft;
 
+    public GameObject splashScreen;
+    public GameObject startButton;
     public float waitBeforeGameStarts;
+
+    public float timeLeft;
+    public Text timerText;
+
     public float waitAfterSpawnMin;
     public float waitAfterSpawnMax;
+    public Text scoreGain;
 
-    public Text timerText;
     public float showGameOverText;
     public GameObject gameOverText;
     public float showRestartButton;
     public GameObject restartButton;
-    public GameObject splashScreen;
-    public GameObject startButton;
+    
     public HatController hatController;
     public float addTimeIfCatch;
 
@@ -53,6 +57,13 @@ public class GameController : MonoBehaviour{
     {
         timeLeft += addTimeIfCatch;
         UpdateText();
+        //Fade in and activate text
+        scoreGain.gameObject.SetActive(true);
+        scoreGain.GetComponent<CanvasRenderer>().SetAlpha(0f);
+        scoreGain.CrossFadeAlpha(1f, .15f, false);
+        //Fade out
+        scoreGain.GetComponent<CanvasRenderer>().SetAlpha(1f);
+        scoreGain.CrossFadeAlpha(0f, .95f, false);
     }
 
     public void StartGame(){
