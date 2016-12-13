@@ -6,19 +6,25 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour {
 
     public Text scoreText;
+    public Text highscoreText;
+
     public int ballValue;
     public int bombValue;
 
     private int score;
+    private int highscore;
 
     // Use this for initialization
     void Start () {
+        highscore = PlayerPrefs.GetInt("highscore", highscore);
+        highscoreText.text = highscore.ToString();
         score = 1;
         UpdateScore();
     }
 
     private void OnTriggerEnter2D(){
         score += ballValue;
+        SaveHighScore();
         UpdateScore();
     }
 
@@ -31,5 +37,23 @@ public class Score : MonoBehaviour {
 
     void UpdateScore(){
         scoreText.text = "" + score;
+    }
+
+    void SaveHighScore()
+    {
+        if (score > highscore)
+        {
+            highscore = score;
+            highscoreText.text = "" + score;
+
+            PlayerPrefs.SetInt("highscore", highscore);
+
+            highscoreText.gameObject.SetActive(true);
+            highscoreText.GetComponent<CanvasRenderer>().SetAlpha(0f);
+            highscoreText.CrossFadeAlpha(1f, .15f, false);
+            //Fade out
+            highscoreText.GetComponent<CanvasRenderer>().SetAlpha(1f);
+            highscoreText.CrossFadeAlpha(0f, .95f, false);
+        }
     }
 }
