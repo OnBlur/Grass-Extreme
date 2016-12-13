@@ -13,7 +13,7 @@ public class Score : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        score = 0;
+        score = 1;
         UpdateScore();
     }
 
@@ -24,12 +24,12 @@ public class Score : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.tag == "Bomb"){
-            score -= ballValue * bombValue;
+            score -= score;
             UpdateScore();
         }
     }
 
     void UpdateScore(){
-        scoreText.text = "Score:\n" + score;
+        scoreText.text = "" + score;
     }
 }
