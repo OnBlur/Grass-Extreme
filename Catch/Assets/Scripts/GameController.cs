@@ -94,15 +94,27 @@ public class GameController : MonoBehaviour{
         while (playing){
             int scoreInt = Convert.ToInt32(scoreText.text);
             GameObject ball = balls[UnityEngine.Random.Range(0, balls.Length)];
-            if(scoreInt >= 10)
+            if (scoreInt < 10)
+            {
+                ball.GetComponent<Rigidbody2D>().gravityScale = 0.5f;
+            }
+            if (scoreInt >= 10 && scoreInt < 20)
+            {
+                ball.GetComponent<Rigidbody2D>().gravityScale = 0.7f;
+            }
+            if (scoreInt >= 20 && scoreInt < 25)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
             }
-            if (scoreInt >= 20)
+            if (scoreInt >= 25 && scoreInt < 30)
+            {
+                ball.GetComponent<Rigidbody2D>().gravityScale = 1.5f;
+            }
+            if (scoreInt >= 30 && scoreInt < 40)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 2.0f;
             }
-            if (scoreInt >= 30)
+            if (scoreInt >= 40 && scoreInt < 50)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 3.0f;
             }
