@@ -26,7 +26,8 @@ public class GameController : MonoBehaviour{
     public GameObject gameOverText;
     public float showRestartButton;
     public GameObject restartButton;
-    
+    public GameObject AudioButton;
+
     public HatController hatController;
     public float addPointsIfCatch;
 
@@ -83,6 +84,7 @@ public class GameController : MonoBehaviour{
     public void StartGame(){
         splashScreen.SetActive(false);
         startButton.SetActive(false);
+        AudioButton.SetActive(false);
         hatController.ToggleControl(true);
         StartCoroutine(Spawn());
     }
