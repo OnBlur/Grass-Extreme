@@ -12,6 +12,9 @@ public class GameController : MonoBehaviour{
 
     public GameObject splashScreen;
     public GameObject startButton;
+    public GameObject highscore;
+    public GameObject Achievements;
+    public GameObject Leaderboard;
     public float waitBeforeGameStarts;
 
     //public float timeLeft;
@@ -87,7 +90,12 @@ public class GameController : MonoBehaviour{
         startButton.SetActive(false);
         AudioButtonOn.SetActive(false);
         AudioButtonOff.SetActive(false);
+        highscore.SetActive(false);
+        Achievements.SetActive(false);
+        Leaderboard.SetActive(false);
+        
         hatController.ToggleControl(true);
+        scoreText.gameObject.SetActive(true);
         StartCoroutine(Spawn());
     }
 

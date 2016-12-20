@@ -8,10 +8,9 @@ public class AudioController : MonoBehaviour {
     public CanvasRenderer audioOn;
     public CanvasRenderer audioOff;
 
-
     private void Start()
     {
-        if (audioToggle = GetComponent<AudioSource>().gameObject.activeSelf)
+        if (audioToggle == GetComponent<AudioSource>().gameObject.activeSelf)
         {
             Debug.Log("Audio is: " + audioToggle);
             audioOn.gameObject.SetActive(true);
