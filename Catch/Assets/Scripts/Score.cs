@@ -11,7 +11,7 @@ public class Score : MonoBehaviour {
     public Image starRight;
 
     public int ballValue;
-    public int bombValue;
+    //public int bombValue;
 
     private int score;
     private int highscore;

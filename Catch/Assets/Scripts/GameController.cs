@@ -10,6 +10,12 @@ public class GameController : MonoBehaviour{
     public GameObject[] balls;
     public float forceAmount;
 
+    public GameObject grassOne;
+    public GameObject grassTwo;
+    public GameObject grassThree;
+    public GameObject grassFour;
+    public GameObject grassFive;
+
     public GameObject splashScreen;
     public GameObject startButton;
     public GameObject highscore;
@@ -117,18 +123,22 @@ public class GameController : MonoBehaviour{
             if (scoreInt >= 20 && scoreInt < 25)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+                grassTwo.SetActive(true);
             }
             if (scoreInt >= 25 && scoreInt < 30)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 1.5f;
+                grassThree.SetActive(true);
             }
             if (scoreInt >= 30 && scoreInt < 40)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 2.0f;
+                grassFour.SetActive(true);
             }
             if (scoreInt >= 40 && scoreInt < 50)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 3.0f;
+                grassFive.SetActive(true);
             }
             Vector2 spawnPosition = new Vector2(UnityEngine.Random.Range(-maxWidth, maxWidth), transform.position.y);
             Quaternion spawnRotation = Quaternion.identity;
