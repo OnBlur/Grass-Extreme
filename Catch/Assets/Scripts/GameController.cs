@@ -75,7 +75,7 @@ public class GameController : MonoBehaviour{
         }
     }
 
-    private void OnTriggerEnter2D()
+    private void OnTriggerEnter2D(Collider2D other)
     {
         /*
         timeLeft += addTimeIfCatch;
@@ -117,28 +117,28 @@ public class GameController : MonoBehaviour{
                 ball.GetComponent<Rigidbody2D>().gravityScale = 0.5f;
             }
             if (scoreInt >= 10 && scoreInt < 20)
+                grassTwo.SetActive(true);
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 0.7f;
             }
             if (scoreInt >= 20 && scoreInt < 25)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-                grassTwo.SetActive(true);
+                grassThree.SetActive(true);
             }
             if (scoreInt >= 25 && scoreInt < 30)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 1.5f;
-                grassThree.SetActive(true);
+                grassFour.SetActive(true);
             }
             if (scoreInt >= 30 && scoreInt < 40)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 2.0f;
-                grassFour.SetActive(true);
+                grassFive.SetActive(true);
             }
             if (scoreInt >= 40 && scoreInt < 50)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 3.0f;
-                grassFive.SetActive(true);
             }
             Vector2 spawnPosition = new Vector2(UnityEngine.Random.Range(-maxWidth, maxWidth), transform.position.y);
             Quaternion spawnRotation = Quaternion.identity;

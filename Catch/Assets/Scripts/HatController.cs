@@ -26,7 +26,7 @@ public class HatController : MonoBehaviour {
         //If we can control hat
         if (canControl){
             Vector2 rawPosition = cam.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 targetPosition = new Vector2(rawPosition.x, 0.0f);
+            Vector2 targetPosition = new Vector2(rawPosition.x, transform.position.y);
 
             float targetWidth = Mathf.Clamp(targetPosition.x, -maxWidth, maxWidth);
             targetPosition = new Vector2(targetWidth, targetPosition.y);

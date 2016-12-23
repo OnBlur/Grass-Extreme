@@ -119,7 +119,7 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.BaNaam.Catch
-  bundleVersion: 0.4.5
+  bundleVersion: 0.5.2
   preloadedAssets: []
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -194,8 +194,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: C:/Users/micha/Documents/spel/Catch/Catch.keystore
+  AndroidKeyaliasName: catch
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
   androidEnableBanner: 1
