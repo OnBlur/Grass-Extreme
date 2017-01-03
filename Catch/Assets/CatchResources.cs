@@ -25,6 +25,7 @@
 public static class CatchResources
 {
         public const string achievement_test5 = "CgkIqaSYpNwIEAIQBQ"; // <GPGSID>
+        public const string leaderboard_highscore = "CgkIqaSYpNwIEAIQBg"; // <GPGSID>
         public const string achievement_test1 = "CgkIqaSYpNwIEAIQAQ"; // <GPGSID>
         public const string achievement_test2 = "CgkIqaSYpNwIEAIQAg"; // <GPGSID>
         public const string achievement_test3 = "CgkIqaSYpNwIEAIQAw"; // <GPGSID>

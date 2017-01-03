@@ -541,11 +541,11 @@ MonoBehaviour:
   - {fileID: 1703923630570744, guid: a94bcfcc32fdd77489cf0949f1acfa04, type: 2}
   - {fileID: 1513672708719804, guid: 148938367844e0d419c8d1adb465eb27, type: 2}
   - {fileID: 1014987956745474, guid: 817e296dca5c120438fe04829ade9660, type: 2}
-  - {fileID: 1026276199206348, guid: 4a21e1cb7dd49734796f7415d2710492, type: 2}
+  - {fileID: 1181920281346908, guid: 1f9c9ea89024d7446a583e45d0bd996a, type: 2}
   - {fileID: 1418889570756350, guid: 2e9fc8e236d62c9489b49cd54b2b38b6, type: 2}
   - {fileID: 1671853107878084, guid: d2c88f430c8ff6841a70b79d4fc56e52, type: 2}
   - {fileID: 1671853107878084, guid: d2c88f430c8ff6841a70b79d4fc56e52, type: 2}
-  forceAmount: 0.5
+  forceAmount: 5
   grassOne: {fileID: 1898908566}
   grassTwo: {fileID: 311682309}
   grassThree: {fileID: 484684264}
@@ -705,9 +705,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 799021511}
-        m_MethodName: LoadScene
-        m_Mode: 3
+      - m_Target: {fileID: 799021512}
+        m_MethodName: ToLeaderBoard
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1159,7 +1159,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 511658758}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 799021512}
+        m_MethodName: ToAchievement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &545083856
@@ -1324,6 +1335,7 @@ GameObject:
   - component: {fileID: 799021508}
   - component: {fileID: 799021507}
   - component: {fileID: 799021511}
+  - component: {fileID: 799021512}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1427,6 +1439,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d704ff356d4246a4aa3ced01abf1063d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &799021512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 799021506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea1a38eac02b2d4abf1515dd01b4fac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &820756152
@@ -1996,11 +2019,12 @@ EdgeCollider2D:
   - {x: -0.75620705, y: -2.1806512}
   - {x: -0.79371625, y: -1.942195}
   - {x: -0.7731099, y: -0.42479384}
-  - {x: -0.79058176, y: -0.29044628}
-  - {x: -0.8511289, y: -0.28783262}
-  - {x: -0.86725265, y: -0.212345}
-  - {x: -0.84362596, y: -0.26523137}
-  - {x: -0.7627794, y: -0.24542785}
+  - {x: -0.79058176, y: -0.3032211}
+  - {x: -0.87029105, y: -0.29741383}
+  - {x: -0.87994426, y: -0.20660913}
+  - {x: -0.8704463, y: -0.1293087}
+  - {x: -0.7733645, y: -0.15664554}
+  - {x: -0.6350314, y: -0.19113481}
   - {x: -0.54148525, y: -2.130961}
   - {x: -0.033571586, y: -2.2376924}
   - {x: 0.5970017, y: -2.1343665}
@@ -2023,8 +2047,8 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: -0.7259532, y: -1.3907791}
-  - {x: 0.80120265, y: -1.3991922}
+  - {x: -0.73326856, y: -0.8933369}
+  - {x: 0.82314897, y: -0.90174997}
 --- !u!114 &915894432
 MonoBehaviour:
   m_ObjectHideFlags: 0

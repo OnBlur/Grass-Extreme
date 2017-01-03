@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour{
     private bool playing;
     private int score;
 
+
     // Use this for initialization
     void Start(){
         if (cam == null){
