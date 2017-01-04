@@ -6,9 +6,17 @@ using UnityEngine.Advertisements;
 
 public class Restart : MonoBehaviour {
 
+    private int ads;
+
+    void Start()
+    {
+        ads = PlayerPrefs.GetInt("AdFree", ads);
+        Debug.Log(ads);
+    }
+
     public void RestartGame()
     {
-        if (Advertisement.IsReady())
+        if (Advertisement.IsReady() && ads == 0)
         {
             Advertisement.Show();
         }
