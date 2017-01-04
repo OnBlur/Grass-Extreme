@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GooglePlayGames;
+using UnityEngine.SocialPlatforms;
 
 public class GameController : MonoBehaviour{
 
@@ -113,33 +115,48 @@ public class GameController : MonoBehaviour{
         while (playing){
             int scoreInt = Convert.ToInt32(scoreText.text);
             GameObject ball = balls[UnityEngine.Random.Range(0, balls.Length)];
-            if (scoreInt < 10)
+            if (scoreInt < 5)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 0.5f;
             }
-            if (scoreInt >= 10 && scoreInt < 20)
-                grassTwo.SetActive(true);
+            if (scoreInt >= 5 && scoreInt < 10)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 0.7f;
+                Social.ReportProgress("CgkIqaSYpNwIEAIQAQ", 100.0f, (bool success) => {
+                    // handle success or failure
+                });
+                grassTwo.SetActive(true);
+            }
+            if (scoreInt >= 10 && scoreInt < 15)
+            {
+                ball.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+                Social.ReportProgress("CgkIqaSYpNwIEAIQAg", 100.0f, (bool success) => {
+                    // handle success or failure
+                });
+                grassThree.SetActive(true);
+            }
+            if (scoreInt >= 15 && scoreInt < 20)
+            {
+                ball.GetComponent<Rigidbody2D>().gravityScale = 1.5f;
+                Social.ReportProgress("CgkIqaSYpNwIEAIQAw", 100.0f, (bool success) => {
+                    // handle success or failure
+                });
+                grassFour.SetActive(true);
             }
             if (scoreInt >= 20 && scoreInt < 25)
             {
-                ball.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-                grassThree.SetActive(true);
+                ball.GetComponent<Rigidbody2D>().gravityScale = 2.0f;
+                Social.ReportProgress("CgkIqaSYpNwIEAIQBA", 100.0f, (bool success) => {
+                    // handle success or failure
+                });
+                grassFive.SetActive(true);
             }
             if (scoreInt >= 25 && scoreInt < 30)
             {
-                ball.GetComponent<Rigidbody2D>().gravityScale = 1.5f;
-                grassFour.SetActive(true);
-            }
-            if (scoreInt >= 30 && scoreInt < 40)
-            {
-                ball.GetComponent<Rigidbody2D>().gravityScale = 2.0f;
-                grassFive.SetActive(true);
-            }
-            if (scoreInt >= 40 && scoreInt < 50)
-            {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 3.0f;
+                Social.ReportProgress("CgkIqaSYpNwIEAIQBQ", 100.0f, (bool success) => {
+                    // handle success or failure
+                });
             }
             Vector2 spawnPosition = new Vector2(UnityEngine.Random.Range(-maxWidth, maxWidth), transform.position.y);
             Quaternion spawnRotation = Quaternion.identity;

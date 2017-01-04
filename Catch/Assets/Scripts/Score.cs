@@ -20,7 +20,7 @@ public class Score : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        PlayerPrefs.DeleteAll();
+        // PlayerPrefs.DeleteAll();
         highscore = PlayerPrefs.GetInt("highscore", highscore);
         highscoreText.text = highscore.ToString();
         score = 1;

@@ -24,12 +24,12 @@
 
 public static class CatchResources
 {
-        public const string achievement_test5 = "CgkIqaSYpNwIEAIQBQ"; // <GPGSID>
+        public const string achievement_25_punten_wtf = "CgkIqaSYpNwIEAIQBQ"; // <GPGSID>
+        public const string achievement_15_punten_nice = "CgkIqaSYpNwIEAIQAw"; // <GPGSID>
+        public const string achievement_10_punten_woah = "CgkIqaSYpNwIEAIQAg"; // <GPGSID>
         public const string leaderboard_highscore = "CgkIqaSYpNwIEAIQBg"; // <GPGSID>
-        public const string achievement_test1 = "CgkIqaSYpNwIEAIQAQ"; // <GPGSID>
-        public const string achievement_test2 = "CgkIqaSYpNwIEAIQAg"; // <GPGSID>
-        public const string achievement_test3 = "CgkIqaSYpNwIEAIQAw"; // <GPGSID>
-        public const string achievement_test4 = "CgkIqaSYpNwIEAIQBA"; // <GPGSID>
+        public const string achievement_20_punten_easy = "CgkIqaSYpNwIEAIQBA"; // <GPGSID>
+        public const string achievement_5_punten_maar = "CgkIqaSYpNwIEAIQAQ"; // <GPGSID>
 
 }
 
