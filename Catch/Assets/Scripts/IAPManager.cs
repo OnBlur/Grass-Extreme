@@ -88,8 +88,6 @@ public class IAPManager : MonoBehaviour, IStoreListener
                 // ... buy the product. Expect a response either through ProcessPurchase or OnPurchaseFailed 
                 // asynchronously.
                 m_StoreController.InitiatePurchase(product);
-                PlayerPrefs.SetInt("AdFree", 1);
-                PlayerPrefs.Save();
             }
             // Otherwise ...
             else
@@ -139,6 +137,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
         else if (String.Equals(args.purchasedProduct.definition.id, PRODUCT_NO_ADS, StringComparison.Ordinal))
         {
             Debug.Log("No Ads");
+            PlayerPrefs.SetInt("AdFree", 1);
+            PlayerPrefs.Save();
         }
         // Or ... an unknown product has been purchased by this user. Fill in additional products here....
         else
