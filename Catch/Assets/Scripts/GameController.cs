@@ -119,7 +119,7 @@ public class GameController : MonoBehaviour{
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 0.5f;
             }
-            if (scoreInt >= 5 && scoreInt < 10)
+            else if (scoreInt >= 5 && scoreInt < 10)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 0.7f;
                 Social.ReportProgress("CgkIqaSYpNwIEAIQAQ", 100.0f, (bool success) => {
@@ -127,7 +127,7 @@ public class GameController : MonoBehaviour{
                 });
                 grassTwo.SetActive(true);
             }
-            if (scoreInt >= 10 && scoreInt < 15)
+            else if(scoreInt >= 10 && scoreInt < 15)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
                 Social.ReportProgress("CgkIqaSYpNwIEAIQAg", 100.0f, (bool success) => {
@@ -135,7 +135,7 @@ public class GameController : MonoBehaviour{
                 });
                 grassThree.SetActive(true);
             }
-            if (scoreInt >= 15 && scoreInt < 20)
+            else if(scoreInt >= 15 && scoreInt < 20)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 1.5f;
                 Social.ReportProgress("CgkIqaSYpNwIEAIQAw", 100.0f, (bool success) => {
@@ -143,7 +143,7 @@ public class GameController : MonoBehaviour{
                 });
                 grassFour.SetActive(true);
             }
-            if (scoreInt >= 20 && scoreInt < 25)
+            else if(scoreInt >= 20 && scoreInt < 25)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 2.0f;
                 Social.ReportProgress("CgkIqaSYpNwIEAIQBA", 100.0f, (bool success) => {
@@ -151,7 +151,7 @@ public class GameController : MonoBehaviour{
                 });
                 grassFive.SetActive(true);
             }
-            if (scoreInt >= 25 && scoreInt < 30)
+            else if(scoreInt >= 25 && scoreInt < 30)
             {
                 ball.GetComponent<Rigidbody2D>().gravityScale = 3.0f;
                 Social.ReportProgress("CgkIqaSYpNwIEAIQBQ", 100.0f, (bool success) => {
