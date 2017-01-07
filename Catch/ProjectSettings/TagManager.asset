@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Bomb
   - Hat
+  - Bloem
+  - Emelt
+  - Kruid
+  - Langpoot
+  - Regenworm
   layers:
   - Default
   - TransparentFX

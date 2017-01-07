@@ -12,14 +12,9 @@ public class GameController : MonoBehaviour{
     public GameObject[] balls;
     public float forceAmount;
 
-    public GameObject grassOne;
-    public GameObject grassTwo;
-    public GameObject grassThree;
-    public GameObject grassFour;
-    public GameObject grassFive;
-
     public GameObject splashScreen;
     public GameObject startButton;
+    public GameObject combo;
     public GameObject highscore;
     public GameObject Achievements;
     public GameObject Leaderboard;
@@ -31,7 +26,6 @@ public class GameController : MonoBehaviour{
     public float waitAfterSpawnMin;
     public float waitAfterSpawnMax;
     public Text scoreText;
-    public Text scoreGain;
 
     public float showGameOverText;
     public GameObject gameOverText;
@@ -41,7 +35,6 @@ public class GameController : MonoBehaviour{
     public GameObject AudioButtonOff;
 
     public HatController hatController;
-    public float addPointsIfCatch;
 
     private float maxWidth;
     private bool playing;
@@ -84,14 +77,6 @@ public class GameController : MonoBehaviour{
         timeLeft += addTimeIfCatch;
         UpdateText();
         */
-        //Fade in and activate text
-        scoreGain.gameObject.SetActive(true);
-        scoreGain.text = "+" + addPointsIfCatch;
-        scoreGain.GetComponent<CanvasRenderer>().SetAlpha(0f);
-        scoreGain.CrossFadeAlpha(1f, .15f, false);
-        //Fade out
-        scoreGain.GetComponent<CanvasRenderer>().SetAlpha(1f);
-        scoreGain.CrossFadeAlpha(0f, .95f, false);
     }
 
     public void StartGame(){
@@ -102,7 +87,8 @@ public class GameController : MonoBehaviour{
         highscore.SetActive(false);
         Achievements.SetActive(false);
         Leaderboard.SetActive(false);
-        
+
+        combo.SetActive(true);
         hatController.ToggleControl(true);
         scoreText.gameObject.SetActive(true);
         StartCoroutine(Spawn());
@@ -125,7 +111,6 @@ public class GameController : MonoBehaviour{
                 Social.ReportProgress("CgkIqaSYpNwIEAIQAQ", 100.0f, (bool success) => {
                     // handle success or failure
                 });
-                grassTwo.SetActive(true);
             }
             else if(scoreInt >= 10 && scoreInt < 15)
             {
@@ -133,7 +118,6 @@ public class GameController : MonoBehaviour{
                 Social.ReportProgress("CgkIqaSYpNwIEAIQAg", 100.0f, (bool success) => {
                     // handle success or failure
                 });
-                grassThree.SetActive(true);
             }
             else if(scoreInt >= 15 && scoreInt < 20)
             {
@@ -141,7 +125,6 @@ public class GameController : MonoBehaviour{
                 Social.ReportProgress("CgkIqaSYpNwIEAIQAw", 100.0f, (bool success) => {
                     // handle success or failure
                 });
-                grassFour.SetActive(true);
             }
             else if(scoreInt >= 20 && scoreInt < 25)
             {
@@ -149,7 +132,6 @@ public class GameController : MonoBehaviour{
                 Social.ReportProgress("CgkIqaSYpNwIEAIQBA", 100.0f, (bool success) => {
                     // handle success or failure
                 });
-                grassFive.SetActive(true);
             }
             else if(scoreInt >= 25 && scoreInt < 30)
             {
