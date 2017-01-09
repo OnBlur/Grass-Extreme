@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  balls:
+  fallingObjects:
   - {fileID: 1703923630570744, guid: a94bcfcc32fdd77489cf0949f1acfa04, type: 2}
   - {fileID: 1513672708719804, guid: 148938367844e0d419c8d1adb465eb27, type: 2}
   - {fileID: 1014987956745474, guid: 817e296dca5c120438fe04829ade9660, type: 2}
@@ -547,13 +547,15 @@ MonoBehaviour:
   forceAmount: 5
   splashScreen: {fileID: 1475510893}
   startButton: {fileID: 820756152}
-  combo: {fileID: 424685867}
+  comboOne: {fileID: 2093454865}
+  comboTwo: {fileID: 1071060915}
+  comboThree: {fileID: 841854783}
   highscore: {fileID: 218347094}
   Achievements: {fileID: 511658756}
   Leaderboard: {fileID: 1665792740}
   waitBeforeGameStarts: 1
   waitAfterSpawnMin: 1
-  waitAfterSpawnMax: 2
+  waitAfterSpawnMax: 1
   scoreText: {fileID: 1145556536}
   showGameOverText: 0
   gameOverText: {fileID: 694401022}
@@ -561,7 +563,7 @@ MonoBehaviour:
   restartButton: {fileID: 79585255}
   AudioButtonOn: {fileID: 1177848698}
   AudioButtonOff: {fileID: 899968190}
-  hatController: {fileID: 915894429}
+  playerController: {fileID: 915894429}
 --- !u!4 &153524680
 Transform:
   m_ObjectHideFlags: 0
@@ -999,37 +1001,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1 &424685867
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 424685868}
-  m_Layer: 0
-  m_Name: Combo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &424685868
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 424685867}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -66.30835, y: 188.07672, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2093454864}
-  - {fileID: 1071060914}
-  - {fileID: 841854782}
-  m_Father: {fileID: 799021510}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &484684264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,7 +1403,9 @@ RectTransform:
   - {fileID: 218347095}
   - {fileID: 511658757}
   - {fileID: 1665792741}
-  - {fileID: 424685868}
+  - {fileID: 2093454864}
+  - {fileID: 1071060914}
+  - {fileID: 841854782}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1666,7 +1639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &841854782
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1677,12 +1650,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 424685868}
-  m_RootOrder: 2
+  m_Father: {fileID: 799021510}
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 256.30835, y: 401.92328}
+  m_AnchoredPosition: {x: 190, y: -50.00006}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &841854783
@@ -1988,8 +1961,8 @@ GameObject:
   - component: {fileID: 915894433}
   - component: {fileID: 915894434}
   m_Layer: 0
-  m_Name: Hat
-  m_TagString: Hat
+  m_Name: Maatbeker
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2036,8 +2009,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 915894425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.015, y: -0.598, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 1}
   m_Children:
   - {fileID: 1765591506}
   - {fileID: 153524680}
@@ -2252,7 +2225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1071060914
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2263,12 +2236,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 424685868}
-  m_RootOrder: 1
+  m_Father: {fileID: 799021510}
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 96.30835, y: 401.92328}
+  m_AnchoredPosition: {x: 30, y: -50.00006}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1071060915
@@ -3715,7 +3688,7 @@ GameObject:
   - component: {fileID: 1765591506}
   - component: {fileID: 1765591507}
   m_Layer: 0
-  m_Name: HatFront
+  m_Name: MaatbekerFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4254,7 +4227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2093454864
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4265,12 +4238,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 424685868}
-  m_RootOrder: 0
+  m_Father: {fileID: 799021510}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -63.69165, y: 401.92328}
+  m_AnchoredPosition: {x: -130, y: -50.00006}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2093454865

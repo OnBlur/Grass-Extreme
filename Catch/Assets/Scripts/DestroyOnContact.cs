@@ -8,4 +8,9 @@ public class DestroyOnContact : MonoBehaviour {
     {
         Destroy(other.gameObject);
     }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(collision.gameObject, 0.5f);
+    }
 }

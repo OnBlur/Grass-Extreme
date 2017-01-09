@@ -8,7 +8,7 @@ public class Explode : MonoBehaviour {
     public ParticleSystem[] effects;
 
     void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.tag == "Hat"){
+        if(collision.gameObject.tag == "Player"){
             Instantiate(explosion, transform.position, transform.rotation);
             foreach(var effect in effects){
                 effect.transform.parent = null;

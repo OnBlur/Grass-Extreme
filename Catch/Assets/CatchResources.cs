@@ -25,9 +25,10 @@
 public static class CatchResources
 {
         public const string achievement_25_punten_wtf = "CgkIqaSYpNwIEAIQBQ"; // <GPGSID>
+        public const string leaderboard_highscore = "CgkIqaSYpNwIEAIQBg"; // <GPGSID>
         public const string achievement_15_punten_nice = "CgkIqaSYpNwIEAIQAw"; // <GPGSID>
         public const string achievement_10_punten_woah = "CgkIqaSYpNwIEAIQAg"; // <GPGSID>
-        public const string leaderboard_highscore = "CgkIqaSYpNwIEAIQBg"; // <GPGSID>
+        public const string achievement_grutto_gas = "CgkIqaSYpNwIEAIQBw"; // <GPGSID>
         public const string achievement_20_punten_easy = "CgkIqaSYpNwIEAIQBA"; // <GPGSID>
         public const string achievement_5_punten_maar = "CgkIqaSYpNwIEAIQAQ"; // <GPGSID>
 

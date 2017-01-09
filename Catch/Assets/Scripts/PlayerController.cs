@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HatController : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 
     public Camera cam;
 

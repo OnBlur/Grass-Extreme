@@ -301,11 +301,11 @@
     <Compile Include="Assets\Scripts\Explode.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GooglePlayServices.cs" />
-    <Compile Include="Assets\Scripts\HatController.cs" />
     <Compile Include="Assets\Scripts\IAPManager.cs" />
     <Compile Include="Assets\Scripts\IAPModal.cs" />
     <Compile Include="Assets\Scripts\PauseScript.cs" />
     <Compile Include="Assets\Scripts\PlayAd.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Restart.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\SelfDestruct.cs" />
