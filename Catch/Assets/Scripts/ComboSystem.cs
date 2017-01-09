@@ -10,6 +10,10 @@ public class ComboSystem : MonoBehaviour {
     public Text itemTwo;
     public Text itemThree;
 
+    public Text scoreText;
+    public Text scoreGain;
+    public float score;
+
     public GameObject grassOne;
     public GameObject grassTwo;
     public GameObject grassThree;

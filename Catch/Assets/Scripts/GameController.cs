@@ -28,10 +28,8 @@ public class GameController : MonoBehaviour{
     public float waitAfterSpawnMin;
     public float waitAfterSpawnMax;
     public Text scoreText;
-
-    public float showGameOverText;
+    
     public GameObject gameOverText;
-    public float showRestartButton;
     public GameObject restartButton;
     public GameObject AudioButtonOn;
     public GameObject AudioButtonOff;
@@ -59,12 +57,12 @@ public class GameController : MonoBehaviour{
     void FixedUpdate(){
         if (playing){
             int scoreInt = Convert.ToInt32(scoreText.text);
-            if (scoreInt == 0)
+            if (scoreInt < 0)
             {
+                scoreText.text = "Verloren";
                 playing = false;
             }
-
-
+            
             /*
             timeLeft -= Time.deltaTime;
             if (timeLeft < 0){
@@ -153,9 +151,7 @@ public class GameController : MonoBehaviour{
             yield return new WaitForSeconds(UnityEngine.Random.Range(waitAfterSpawnMin, waitAfterSpawnMax));
         }
         playerController.ToggleControl(false);
-        yield return new WaitForSeconds(showGameOverText);
         gameOverText.SetActive(true);
-        yield return new WaitForSeconds(showRestartButton);
         restartButton.SetActive(true);
     }
 

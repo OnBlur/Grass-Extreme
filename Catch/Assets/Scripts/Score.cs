@@ -24,7 +24,7 @@ public class Score : MonoBehaviour {
         // PlayerPrefs.DeleteAll();
         highscore = PlayerPrefs.GetInt("highscore", highscore);
         highscoreText.text = highscore.ToString();
-        score = 1;
+        score = 0;
         UpdateScore();
     }
 
@@ -44,7 +44,7 @@ public class Score : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.tag == "Enemy"){
-            score -= score;
+            score = -1;
             UpdateScore();
         }
     }
