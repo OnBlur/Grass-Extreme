@@ -151,24 +151,28 @@ public class GameController : MonoBehaviour
                     // handle success or failure
                 });
             }
-            else if (scoreInt >= 50 && scoreInt < 55)
+            else if (scoreInt >= 50 && scoreInt < 60)
             {
                 fallingObject.GetComponent<Rigidbody2D>().gravityScale = 1.2f;
                 Social.ReportProgress("CgkIqaSYpNwIEAIQBQ", 100.0f, (bool success) => {
                     // handle success or failure
                 });
             }
-            else if (scoreInt >= 55 && scoreInt < 60)
+            else if (scoreInt >= 60 && scoreInt < 70)
             {
                 fallingObject.GetComponent<Rigidbody2D>().gravityScale = 1.4f;
             }
-            else if (scoreInt >= 60 && scoreInt < 65)
+            else if (scoreInt >= 70 && scoreInt < 80)
             {
                 fallingObject.GetComponent<Rigidbody2D>().gravityScale = 1.6f;
             }
-            else if (scoreInt >= 65 && scoreInt < 70)
+            else if (scoreInt >= 80 && scoreInt < 90)
             {
                 fallingObject.GetComponent<Rigidbody2D>().gravityScale = 1.8f;
+            }
+            else if (scoreInt >= 90 && scoreInt < 100)
+            {
+                fallingObject.GetComponent<Rigidbody2D>().gravityScale = 2.0f;
             }
             Vector2 spawnPosition = new Vector2(UnityEngine.Random.Range(-maxWidth, maxWidth), transform.position.y);
             Quaternion spawnRotation = Quaternion.identity;

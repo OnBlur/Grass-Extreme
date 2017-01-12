@@ -13,7 +13,7 @@ public class Score : MonoBehaviour {
     public Image starRight;
     public Text scoreGain;
 
-    public int ballValue;
+    public int catchValue;
     //public int bombValue;
 
     private int score;
@@ -30,14 +30,14 @@ public class Score : MonoBehaviour {
 
     private void OnTriggerEnter2D(){
         scoreGain.gameObject.SetActive(true);
-        scoreGain.text = "+" + ballValue;
+        scoreGain.text = "+" + catchValue;
         scoreGain.GetComponent<CanvasRenderer>().SetAlpha(0f);
         scoreGain.CrossFadeAlpha(1f, .15f, false);
         //Fade out
         scoreGain.GetComponent<CanvasRenderer>().SetAlpha(1f);
         scoreGain.CrossFadeAlpha(0f, .95f, false);
 
-        score += ballValue;
+        score += catchValue;
         SaveHighScore();
         UpdateScore();
     }
