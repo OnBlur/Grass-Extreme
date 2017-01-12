@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grass Extreme.Plugins", "Grass Extreme.Plugins.csproj", "{FCC1DFDC-74C7-037E-796F-EB25991A49FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grass Extreme", "Grass Extreme.csproj", "{156429EA-B6DA-B354-A761-B23AEA6842AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grass Extreme.Editor.Plugins", "Grass Extreme.Editor.Plugins.csproj", "{1A7856CC-34C9-4392-B36D-08D5DE98254C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grass Extreme.Editor", "Grass Extreme.Editor.csproj", "{6B18307B-6624-4513-876B-B303BC126F90}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCC1DFDC-74C7-037E-796F-EB25991A49FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCC1DFDC-74C7-037E-796F-EB25991A49FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCC1DFDC-74C7-037E-796F-EB25991A49FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCC1DFDC-74C7-037E-796F-EB25991A49FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{156429EA-B6DA-B354-A761-B23AEA6842AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{156429EA-B6DA-B354-A761-B23AEA6842AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{156429EA-B6DA-B354-A761-B23AEA6842AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{156429EA-B6DA-B354-A761-B23AEA6842AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A7856CC-34C9-4392-B36D-08D5DE98254C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A7856CC-34C9-4392-B36D-08D5DE98254C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A7856CC-34C9-4392-B36D-08D5DE98254C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A7856CC-34C9-4392-B36D-08D5DE98254C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B18307B-6624-4513-876B-B303BC126F90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B18307B-6624-4513-876B-B303BC126F90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B18307B-6624-4513-876B-B303BC126F90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B18307B-6624-4513-876B-B303BC126F90}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
