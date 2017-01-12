@@ -119,13 +119,13 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.BaNaam.Catch
-  bundleVersion: 0.8.2
+  bundleVersion: 0.8.3
   preloadedAssets: []
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
   xboxOneDisableKinectGpuReservation: 0
   protectGraphicsMemory: 0
-  AndroidBundleVersionCode: 15
+  AndroidBundleVersionCode: 16
   AndroidMinSdkVersion: 14
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -194,7 +194,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/micha/Documents/spel/Grass Extreme/Catch.keystore
+  AndroidKeystoreName: C:/Users/micha/Documents/Spel/Grass Extreme/Catch.keystore
   AndroidKeyaliasName: catch
   AndroidTVCompatibility: 0
   AndroidIsGame: 1

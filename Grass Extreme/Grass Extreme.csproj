@@ -295,7 +295,6 @@
     <Compile Include="Assets\GooglePlayGames\PluginVersion.cs" />
     <Compile Include="Assets\Scripts\AudioController.cs" />
     <Compile Include="Assets\Scripts\BackgroundScroll.cs" />
-    <Compile Include="Assets\Scripts\ClickAudio.cs" />
     <Compile Include="Assets\Scripts\ComboSystem.cs" />
     <Compile Include="Assets\Scripts\DayNightCycle.cs" />
     <Compile Include="Assets\Scripts\DestroyOnContact.cs" />
@@ -305,7 +304,6 @@
     <Compile Include="Assets\Scripts\IAPManager.cs" />
     <Compile Include="Assets\Scripts\IAPModal.cs" />
     <Compile Include="Assets\Scripts\PauseScript.cs" />
-    <Compile Include="Assets\Scripts\PlayAd.cs" />
     <Compile Include="Assets\Scripts\PlaySoundOnContact.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Restart.cs" />

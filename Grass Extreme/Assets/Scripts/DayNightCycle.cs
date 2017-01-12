@@ -18,7 +18,7 @@ public class DayNightCycle : MonoBehaviour {
 
     void Update() {
         transition += (sunrise) ? transitionSpeed * Time.deltaTime : -transitionSpeed * Time.deltaTime;
-        if (transition < 0.0f || transition > 1.9f)
+        if (transition < 0.0f || transition > 1.5f)
             sunrise = !sunrise;
         thisLight.intensity = transition;
         thisLight.color = Color.Lerp(Color.blue, Color.white, transition);

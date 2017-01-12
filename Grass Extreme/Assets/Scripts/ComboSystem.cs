@@ -22,8 +22,7 @@ public class ComboSystem : MonoBehaviour {
     public GameObject[] grass;
     public bool[] grassBool;
     public string achievementGrass;
-
-    //private int score;
+    
     private Image image;
     private int index;
 
@@ -78,7 +77,7 @@ public class ComboSystem : MonoBehaviour {
                     grass[i].SetActive(true);
                     grassBool[i] = true;
                     source.Play();
-                    // Set achievement progress to 20% of 100%
+                    // Set achievement progress to 12% of 100%
                     Social.ReportProgress(achievementGrass, 12.0f, (bool success) => {
                         // handle success or failure
                     });

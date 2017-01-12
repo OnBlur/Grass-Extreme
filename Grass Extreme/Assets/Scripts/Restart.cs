@@ -16,11 +16,13 @@ public class Restart : MonoBehaviour {
 
     public void RestartGame()
     {
-        //%50 percent chance to show ad
+        // %50 percent chance to show ad
+        /*
         if (Advertisement.IsReady() && ads == 0 && Random.value > 0.5f)
         {
             Advertisement.Show();
         }
+        */
 
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);

@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public Camera cam;
     public GameObject[] fallingObjects;
 
+    public GameObject gameNameImage;
     public GameObject splashScreen;
     public GameObject startButton;
 
@@ -90,6 +91,7 @@ public class GameController : MonoBehaviour
 
     public void StartGame()
     {
+        gameNameImage.SetActive(false);
         splashScreen.SetActive(false);
         startButton.SetActive(false);
         AudioButtonOn.SetActive(false);
