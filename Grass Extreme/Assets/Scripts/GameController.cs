@@ -8,7 +8,6 @@ using UnityEngine.SocialPlatforms;
 
 public class GameController : MonoBehaviour
 {
-
     public Camera cam;
     public GameObject[] fallingObjects;
 
@@ -40,6 +39,10 @@ public class GameController : MonoBehaviour
 
     public PlayerController playerController;
 
+	public AudioSource SoundToPlay;
+	public float Volume;
+	public bool alreadyPlayed = false;
+
     private float maxWidth;
     private bool playing;
     private int score;
@@ -52,6 +55,7 @@ public class GameController : MonoBehaviour
         {
             cam = Camera.main;
         }
+		SoundToPlay = GetComponent<AudioSource> ();
         playing = false;
         Vector2 upperCorner = new Vector2(Screen.width, Screen.height);
         Vector2 targetWidth = cam.ScreenToWorldPoint(upperCorner);
@@ -62,7 +66,7 @@ public class GameController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (playing)
+		if (playing)
         {
             int scoreInt = Convert.ToInt32(scoreText.text);
             if (scoreInt < 0)
@@ -119,56 +123,118 @@ public class GameController : MonoBehaviour
         {
             int scoreInt = Convert.ToInt32(scoreText.text);
             GameObject fallingObject = fallingObjects[UnityEngine.Random.Range(0, fallingObjects.Length)];
-            if (scoreInt < 5)
-            {
-                fallingObject.GetComponent<Rigidbody2D>().gravityScale = 0.2f;
-            }
-            else if (scoreInt >= 10 && scoreInt < 20)
-            {
-                fallingObject.GetComponent<Rigidbody2D>().gravityScale = 0.4f;
-                Social.ReportProgress("CgkIqaSYpNwIEAIQAQ", 100.0f, (bool success) => {
-                    // handle success or failure
-                });
-            }
+			if (scoreInt < 5) {
+				fallingObject.GetComponent<Rigidbody2D> ().gravityScale = 0.2f;
+			} 
+
+			else if (scoreInt >= 10 && scoreInt < 20) 
+			{
+				if (scoreInt == 10)
+                {
+					if (alreadyPlayed == false)
+                    {
+						alreadyPlayed = true;
+						SoundToPlay.Play();
+                    }
+                }
+
+				fallingObject.GetComponent<Rigidbody2D> ().gravityScale = 0.4f;
+				Social.ReportProgress ("CgkIqaSYpNwIEAIQAQ", 100.0f, (bool success) => {
+					// handle success or failure
+				});
+			}
             else if (scoreInt >= 20 && scoreInt < 30)
             {
+				if (scoreInt == 20)
+                {
+					if (alreadyPlayed == true)
+                    {
+						SoundToPlay.Play();
+						alreadyPlayed = false;
+                    }
+			    }
+
                 fallingObject.GetComponent<Rigidbody2D>().gravityScale = 0.6f;
                 Social.ReportProgress("CgkIqaSYpNwIEAIQAg", 100.0f, (bool success) => {
                     // handle success or failure
                 });
+				alreadyPlayed = false;
             }
             else if (scoreInt >= 30 && scoreInt < 40)
             {
+				if (scoreInt == 30)
+                {
+					if (alreadyPlayed == false)
+                    {
+						SoundToPlay.Play();
+						alreadyPlayed = true;
+                    }
+				}
+
                 fallingObject.GetComponent<Rigidbody2D>().gravityScale = 0.8f;
                 Social.ReportProgress("CgkIqaSYpNwIEAIQAw", 100.0f, (bool success) => {
                     // handle success or failure
                 });
             }
             else if (scoreInt >= 40 && scoreInt < 50)
-            {
+			{
+				if (scoreInt == 40)
+                {
+					if (alreadyPlayed == true)
+                    {
+						SoundToPlay.Play();
+						alreadyPlayed = false;
+                    }
+				}
+
                 fallingObject.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
                 Social.ReportProgress("CgkIqaSYpNwIEAIQBA", 100.0f, (bool success) => {
                     // handle success or failure
                 });
+
+				alreadyPlayed = false;
             }
-            else if (scoreInt >= 50 && scoreInt < 55)
+            else if (scoreInt >= 50 && scoreInt < 60)
             {
+				if (scoreInt == 50)
+                {
+					if (alreadyPlayed == false)
+                    {
+						SoundToPlay.Play();
+						alreadyPlayed = true;
+                    }
+				}
+
                 fallingObject.GetComponent<Rigidbody2D>().gravityScale = 1.2f;
                 Social.ReportProgress("CgkIqaSYpNwIEAIQBQ", 100.0f, (bool success) => {
                     // handle success or failure
                 });
             }
-            else if (scoreInt >= 55 && scoreInt < 60)
+            else if (scoreInt >= 60 && scoreInt < 70)
             {
+				if (scoreInt == 60)
+                {
+					if (alreadyPlayed == true)
+                    {
+						SoundToPlay.Play();
+						alreadyPlayed = false;
+                    }
+				}
+
                 fallingObject.GetComponent<Rigidbody2D>().gravityScale = 1.4f;
             }
-            else if (scoreInt >= 60 && scoreInt < 65)
+
+            else if (scoreInt >= 70 && scoreInt < 80)
             {
                 fallingObject.GetComponent<Rigidbody2D>().gravityScale = 1.6f;
             }
-            else if (scoreInt >= 65 && scoreInt < 70)
+            else if (scoreInt >= 80 && scoreInt < 90)
             {
                 fallingObject.GetComponent<Rigidbody2D>().gravityScale = 1.8f;
+            }
+            else if (scoreInt >= 90 && scoreInt < 100)
+            {
+                fallingObject.GetComponent<Rigidbody2D>().gravityScale = 2.0f;
             }
             Vector2 spawnPosition = new Vector2(UnityEngine.Random.Range(-maxWidth, maxWidth), transform.position.y);
             Quaternion spawnRotation = Quaternion.identity;
@@ -186,3 +252,5 @@ public class GameController : MonoBehaviour
     }
     */
 }
+
+
