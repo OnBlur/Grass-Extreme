@@ -5,30 +5,21 @@ using UnityEngine.UI;
 
 public class ComboSystem : MonoBehaviour {
 
+    public AudioSource source;
+    public string achievementGrass;
+
     public GameObject[] insectArray;
     public GameObject[] comboArray = new GameObject[3];
-    public Sprite[] comboImages = new Sprite[3];
-
-    public Image itemOneImage;
-    public Image itemTwoImage;
-    public Image itemThreeImage;
-
-    public Image itemOneFinish;
-    public Image itemTwoFinish;
-    public Image itemThreeFinish;
-
-    public AudioSource source;
+    
+    public Image[] comboImages;
+    public Image[] comboFinishImages;
 
     public GameObject[] grass;
     public bool[] grassBool;
-    public string achievementGrass;
-    
-    private Image image;
-    private int index;
 
-    private bool itemOneBool;
-    private bool itemTwoBool;
-    private bool comboFinish;
+    private Sprite[] comboSprites = new Sprite[3];
+    private bool[] comboBools = new bool[3];
+    private int index;
     
     void Start()
     {
@@ -41,20 +32,20 @@ public class ComboSystem : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collision)
     {
         // If gameobject is the same as the tag of the gameobject in array
-        if (collision.gameObject.tag == comboArray[0].gameObject.tag && itemOneBool == false)
+        if (collision.gameObject.tag == comboArray[0].gameObject.tag && comboBools[0] == false)
         {
-            itemOneFinish.gameObject.SetActive(true);
-            itemOneBool = true;
+            comboFinishImages[0].gameObject.SetActive(true);
+            comboBools[0] = true;
         }
-        else if (collision.gameObject.tag == comboArray[1].gameObject.tag && itemOneBool == true && itemTwoBool == false)
+        else if (collision.gameObject.tag == comboArray[1].gameObject.tag && comboBools[0] == true && comboBools[1] == false)
         {
-            itemTwoFinish.gameObject.SetActive(true);
-            itemTwoBool = true;
+            comboFinishImages[1].gameObject.SetActive(true);
+            comboBools[1] = true;
         }
-        else if (collision.gameObject.tag == comboArray[2].gameObject.tag && itemTwoBool == true && comboFinish == false)
+        else if (collision.gameObject.tag == comboArray[2].gameObject.tag && comboBools[1] == true && comboBools[2] == false)
         {
-            itemThreeFinish.gameObject.SetActive(true);
-            comboFinish = true;
+            comboFinishImages[2].gameObject.SetActive(true);
+            comboBools[2] = true;
             GrassGrow();
             GenerateNewCombo();
         }
@@ -62,10 +53,10 @@ public class ComboSystem : MonoBehaviour {
     
     private void GrassGrow()
     {
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < grass.Length; i++)
         {
             // If comboFinish is true, generate new combo by invoking GenerateNewCombo
-            if (comboFinish == true)
+            if (comboBools[2] == true)
             {
                 /*
                 GrassOne is always enabled, check Grass_1 in the Unity hierarchy
@@ -89,45 +80,26 @@ public class ComboSystem : MonoBehaviour {
 
     /// <summary>
     /// Generates new combo, sets the bools to the original false state so the loop can start over again.
-    /// Sets the Text items to color RED.
     /// </summary>
     private void GenerateNewCombo()
     {
         Debug.Log("Generating new combo...");
 
-        itemOneFinish.gameObject.SetActive(false);
-        itemTwoFinish.gameObject.SetActive(false);
-        itemThreeFinish.gameObject.SetActive(false);
-
-        itemOneBool = false;
-        itemTwoBool = false;
-        comboFinish = false;
-        
         // Do a loop if i is smaller than 3
         for (int i = 0;  i < 3; i++)
         {
+            if(comboFinishImages[2] == isActiveAndEnabled)
+            {
+                comboFinishImages[i].gameObject.SetActive(false);
+                comboBools[i] = false; 
+            }
+
             // Take Random item from insectArray and save it to index
             index = Random.Range(0, insectArray.Length);
             // Save the index from isectArray in comboArray number i.
             comboArray[i] = insectArray[index];
-
-            comboImages[i] = comboArray[i].gameObject.GetComponent<SpriteRenderer>().sprite;
-            // Get gameObject tag and save it in tag as string
-            string tag = comboArray[i].gameObject.tag;
-
-            // if i is 0 set item 1 text to the tag of the gameobject
-            if (i == 0)
-            {
-                itemOneImage.sprite = comboImages[i];
-            }
-            else if (i == 1)
-            {
-                itemTwoImage.sprite = comboImages[i];
-            }
-            else if (i == 2)
-            {
-                itemThreeImage.sprite = comboImages[i];
-            }
+            comboSprites[i] = comboArray[i].gameObject.GetComponent<SpriteRenderer>().sprite;
+            comboImages[i].sprite = comboSprites[i];
         }
     }
 }

@@ -10,11 +10,13 @@ public class GameController : MonoBehaviour
 {
     public Camera cam;
     public GameObject[] fallingObjects;
+    public string[] AchievementsScore;
 
     public GameObject gameNameImage;
     public GameObject splashScreen;
     public GameObject startButton;
 
+    public Image howToPlayImage;
     public Image comboBalk;
     public Image itemOneImage;
     public Image itemTwoImage;
@@ -24,15 +26,13 @@ public class GameController : MonoBehaviour
     public GameObject Achievements;
     public GameObject Leaderboard;
     public float waitBeforeGameStarts;
-
-    //public float timeLeft;
-    //public Text timerText;
-
+    
     public float waitAfterSpawnMin;
     public float waitAfterSpawnMax;
     public Text scoreText;
 
-    public GameObject gameOverText;
+    public GameObject gameOverImage;
+    public Text finalScore;
     public GameObject restartButton;
     public GameObject AudioButtonOn;
     public GameObject AudioButtonOff;
@@ -45,8 +45,11 @@ public class GameController : MonoBehaviour
 
     private float maxWidth;
     private bool playing;
+    private int scoreInt;
     private int score;
-
+    private float gravityScaling = 0.2f;
+    private int minScore = 10;
+    private int maxScore = 20;
 
     // Use this for initialization
     void Start()
@@ -55,42 +58,33 @@ public class GameController : MonoBehaviour
         {
             cam = Camera.main;
         }
+        for(int i = 0; i < fallingObjects.Length; i++)
+        {
+            fallingObjects[i].GetComponent<Rigidbody2D>().gravityScale = 0.2f;
+        }
 		SoundToPlay = GetComponent<AudioSource> ();
         playing = false;
         Vector2 upperCorner = new Vector2(Screen.width, Screen.height);
         Vector2 targetWidth = cam.ScreenToWorldPoint(upperCorner);
-        float ballWidth = fallingObjects[0].GetComponent<Renderer>().bounds.extents.x;
-        maxWidth = targetWidth.x - ballWidth;
-        //UpdateText();
+        float insectWidth = fallingObjects[0].GetComponent<Renderer>().bounds.extents.x;
+        maxWidth = targetWidth.x - insectWidth;
     }
 
     void FixedUpdate()
     {
 		if (playing)
         {
-            int scoreInt = Convert.ToInt32(scoreText.text);
+            scoreInt = Convert.ToInt32(scoreText.text);
             if (scoreInt < 0)
             {
                 scoreText.text = "0";
                 playing = false;
             }
-
-            /*
-            timeLeft -= Time.deltaTime;
-            if (timeLeft < 0){
-                timeLeft = 0;
+            else if(scoreInt > score)
+            {
+                score = scoreInt;
             }
-            UpdateText();
-            */
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        /*
-        timeLeft += addTimeIfCatch;
-        UpdateText();
-        */
     }
 
     public void StartGame()
@@ -104,137 +98,54 @@ public class GameController : MonoBehaviour
         Achievements.SetActive(false);
         Leaderboard.SetActive(false);
 
+        howToPlayImage.gameObject.SetActive(true);
         comboBalk.gameObject.SetActive(true);
         itemOneImage.gameObject.SetActive(true);
         itemTwoImage.gameObject.SetActive(true);
         itemThreeImage.gameObject.SetActive(true);
 
         playerController.ToggleControl(true);
-        scoreText.gameObject.SetActive(true);
         StartCoroutine(Spawn());
     }
 
-    //Spawn random balls in the screen width
+    //Spawn random insects in the screen width
     IEnumerator Spawn()
     {
         yield return new WaitForSeconds(waitBeforeGameStarts);
+        howToPlayImage.gameObject.SetActive(false);
+        scoreText.gameObject.SetActive(true);
         playing = true;
+        
         while (playing)
         {
+            int i = 0;
             int scoreInt = Convert.ToInt32(scoreText.text);
             GameObject fallingObject = fallingObjects[UnityEngine.Random.Range(0, fallingObjects.Length)];
-			if (scoreInt < 5) {
-				fallingObject.GetComponent<Rigidbody2D> ().gravityScale = 0.2f;
-			} 
 
-			else if (scoreInt >= 10 && scoreInt < 20) 
-			{
-				if (scoreInt == 10)
+            if (scoreInt >= minScore && scoreInt < maxScore)
+            {
+                // Play sound if scoreInt is the same as minScore
+                if (scoreInt == minScore)
                 {
-					if (alreadyPlayed == false)
+                    if (alreadyPlayed == false)
                     {
-						alreadyPlayed = true;
-						SoundToPlay.Play();
+                        alreadyPlayed = true;
+                        SoundToPlay.Play();
                     }
                 }
-
-				fallingObject.GetComponent<Rigidbody2D> ().gravityScale = 0.4f;
-				Social.ReportProgress ("CgkIqaSYpNwIEAIQAQ", 100.0f, (bool success) => {
-					// handle success or failure
-				});
-			}
-            else if (scoreInt >= 20 && scoreInt < 30)
-            {
-				if (scoreInt == 20)
+                // Give new gravity to the fallingObject
+                for(int x = 0; x < fallingObjects.Length; x++)
                 {
-					if (alreadyPlayed == true)
-                    {
-						SoundToPlay.Play();
-						alreadyPlayed = false;
-                    }
-			    }
+                    fallingObjects[x].GetComponent<Rigidbody2D>().gravityScale = gravityScaling;
+                }
+                
+                gravityScaling += 0.2f;
+                minScore += 10;
+                maxScore += 10;
 
-                fallingObject.GetComponent<Rigidbody2D>().gravityScale = 0.6f;
-                Social.ReportProgress("CgkIqaSYpNwIEAIQAg", 100.0f, (bool success) => {
-                    // handle success or failure
+                Social.ReportProgress(AchievementsScore[i], 100.0f, (bool success) => {
+                    i++;
                 });
-				alreadyPlayed = false;
-            }
-            else if (scoreInt >= 30 && scoreInt < 40)
-            {
-				if (scoreInt == 30)
-                {
-					if (alreadyPlayed == false)
-                    {
-						SoundToPlay.Play();
-						alreadyPlayed = true;
-                    }
-				}
-
-                fallingObject.GetComponent<Rigidbody2D>().gravityScale = 0.8f;
-                Social.ReportProgress("CgkIqaSYpNwIEAIQAw", 100.0f, (bool success) => {
-                    // handle success or failure
-                });
-            }
-            else if (scoreInt >= 40 && scoreInt < 50)
-			{
-				if (scoreInt == 40)
-                {
-					if (alreadyPlayed == true)
-                    {
-						SoundToPlay.Play();
-						alreadyPlayed = false;
-                    }
-				}
-
-                fallingObject.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-                Social.ReportProgress("CgkIqaSYpNwIEAIQBA", 100.0f, (bool success) => {
-                    // handle success or failure
-                });
-
-				alreadyPlayed = false;
-            }
-            else if (scoreInt >= 50 && scoreInt < 60)
-            {
-				if (scoreInt == 50)
-                {
-					if (alreadyPlayed == false)
-                    {
-						SoundToPlay.Play();
-						alreadyPlayed = true;
-                    }
-				}
-
-                fallingObject.GetComponent<Rigidbody2D>().gravityScale = 1.2f;
-                Social.ReportProgress("CgkIqaSYpNwIEAIQBQ", 100.0f, (bool success) => {
-                    // handle success or failure
-                });
-            }
-            else if (scoreInt >= 60 && scoreInt < 70)
-            {
-				if (scoreInt == 60)
-                {
-					if (alreadyPlayed == true)
-                    {
-						SoundToPlay.Play();
-						alreadyPlayed = false;
-                    }
-				}
-
-                fallingObject.GetComponent<Rigidbody2D>().gravityScale = 1.4f;
-            }
-
-            else if (scoreInt >= 70 && scoreInt < 80)
-            {
-                fallingObject.GetComponent<Rigidbody2D>().gravityScale = 1.6f;
-            }
-            else if (scoreInt >= 80 && scoreInt < 90)
-            {
-                fallingObject.GetComponent<Rigidbody2D>().gravityScale = 1.8f;
-            }
-            else if (scoreInt >= 90 && scoreInt < 100)
-            {
-                fallingObject.GetComponent<Rigidbody2D>().gravityScale = 2.0f;
             }
             Vector2 spawnPosition = new Vector2(UnityEngine.Random.Range(-maxWidth, maxWidth), transform.position.y);
             Quaternion spawnRotation = Quaternion.identity;
@@ -242,15 +153,11 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(UnityEngine.Random.Range(waitAfterSpawnMin, waitAfterSpawnMax));
         }
         playerController.ToggleControl(false);
-        gameOverText.SetActive(true);
+        gameOverImage.SetActive(true);
+        finalScore.text = Convert.ToString(score);
+        finalScore.gameObject.SetActive(true);
         restartButton.SetActive(true);
     }
-
-    /*
-    void UpdateText(){
-        timerText.text = "Time Left:\n" + Mathf.RoundToInt(timeLeft);
-    }
-    */
 }
 
 
