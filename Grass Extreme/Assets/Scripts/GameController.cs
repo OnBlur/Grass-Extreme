@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     public GameObject splashScreen;
     public GameObject startButton;
 
-    public Image howToPlayImage;
+    public Button howToPlayButton;
     public Image comboBalk;
     public Image itemOneImage;
     public Image itemTwoImage;
@@ -98,7 +98,7 @@ public class GameController : MonoBehaviour
         Achievements.SetActive(false);
         Leaderboard.SetActive(false);
 
-        howToPlayImage.gameObject.SetActive(true);
+        howToPlayButton.gameObject.SetActive(true);
         comboBalk.gameObject.SetActive(true);
         itemOneImage.gameObject.SetActive(true);
         itemTwoImage.gameObject.SetActive(true);
@@ -108,11 +108,38 @@ public class GameController : MonoBehaviour
         StartCoroutine(Spawn());
     }
 
+    public void SkipExplanation()
+    {
+        waitBeforeGameStarts = 0.0f;
+        howToPlayButton.gameObject.SetActive(false);
+    }
+
+    public static class WaitForSecondsIterator
+    {
+        public static IEnumerable Run(float numSeconds)
+        {
+            var startTime = Time.time;
+            while (Time.time - startTime < numSeconds)
+            {
+                yield return null;
+            }
+        }
+    }
+
     //Spawn random insects in the screen width
     IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(waitBeforeGameStarts);
-        howToPlayImage.gameObject.SetActive(false);
+        foreach (var cur in WaitForSecondsIterator.Run(waitBeforeGameStarts))
+        {
+            if (waitBeforeGameStarts == 0.0f)
+            {
+                break;
+            }
+            yield return cur;
+        }
+
+        Debug.Log("Started");
+        howToPlayButton.gameObject.SetActive(false);
         scoreText.gameObject.SetActive(true);
         playing = true;
         
